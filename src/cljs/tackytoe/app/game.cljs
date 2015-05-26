@@ -1,16 +1,19 @@
 (ns tackytoe.app.game)
 
-(def players [{:name "Rajnikanth" :email "r@k.com"}
-              {:name "Rakhi" :email "foo@bar.com"}])
-
-(defn player
-  [name email]
-  [:li [:a {:href (str "mailto:" email) :target :_blank}
-        name]])
+(def gameCells [{:marked "x"}
+                {:marked "o"}
+                {:marked ""}
+                {:marked ""}
+                {:marked ""}
+                {:marked "x"}
+                {:marked ""}
+                {:marked ""}
+                {:marked ""}])
 
 
 (defn game []
-  [:div "This is the tic tac toe game page."
-   [:ul (for [{:keys [name email]} players]
-          [player name email])]
-   [:div [:a {:href "#/"} "go to the home page"]]])
+  [:div.game
+   [:div.game__board (for [cell gameCells]
+                       [:div.game__cell {:data-marked (:marked cell)}])]
+   [:div.game__player {:data-player "rajini"}]
+   [:div.game__player {:data-player "you"}]])

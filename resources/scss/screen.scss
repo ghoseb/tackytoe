@@ -1,8 +1,13 @@
 @import "compass";
 
 
-$color-bg : #F0F5F7;
-$color-text : #222;
+$color-bg     : #F0F5F7;
+$color-edge   : #C1CACD;
+$color-border : rgba(#222, 0.2);
+$color-text   : #222;
+$color-red    : #FF6826;
+$color-green  : #32B588;
+
 
 $gutter: 24px;
 
@@ -76,7 +81,7 @@ html, body, #app {
             display: block;
             width: $gutter*3;
             height: 1px;
-            background: rgba($color-text, 0.2);
+            background: $color-border;
             position: absolute;
             top: 50%;
             left: 0;
@@ -99,8 +104,15 @@ html, body, #app {
             background-color: rgba(0,0,0,0.1);
             background-size: 100% 100%;
             margin-right: $gutter;
+            cursor: pointer;
             &:last-child { margin-right: 0; }
             @include transition(all 0.25s ease-out 0s);
+            @include box-shadow(
+                1px 3px 0 0 $color-edge,
+                1px 2px 0 0 $color-edge,
+                1px 1px 0 0 $color-edge,
+                0 0 0 1px rgba(#fff, 0.7) inset );
+
 
             &:hover {
                 @include scale(1.1);
@@ -112,6 +124,104 @@ html, body, #app {
             &[data-player="batman"] {
                 background-image: url("/images/batman.png");
             }
+        }
+    }
+}
+
+
+/**
+ * Player Select
+ */
+.game {
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: - 160px;
+
+    > .game__board {
+        width: 240px;
+        height: 240px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -120px;
+        > .game__cell {
+            width: 70px;
+            height: 70px;
+            margin: 0 15px 15px 0;
+            background: lighten($color-bg, 4%);
+            cursor: pointer;
+            @include border-radius(10px);
+            @include box-shadow(
+                1px 3px 0 0 $color-edge,
+                1px 2px 0 0 $color-edge,
+                1px 1px 0 0 $color-edge,
+                0 0 0 1px rgba(#fff, 0.7) inset );
+            float: left;
+            @include transition(all 0.25s ease-out 0s);
+
+            &:nth-child(3n + 3) { margin-right: 0; }
+            &:nth-child(n + 7) { margin-bottom: 0; }
+
+            &:hover {
+                @include scale(1.1);
+            }
+
+            &[data-marked="x"],
+            &[data-marked="o"] {
+                text-align: center;
+                cursor: default;
+                &:hover { @include scale(1); }
+                &:after {
+                    display: block;
+                    content: "x";
+                    text-transform: uppercase;
+                    padding: $gutter 0;
+                    line-height: $gutter;
+                    font-size: 38px;
+                    font-weight: bold;
+                    color: $color-red;
+                }
+            }
+            &[data-marked="o"] {
+                text-align: center;
+                &:after {
+                    content: "o";
+                    font-size: 42px;
+                    color: $color-green;
+                }
+            }
+
+        }
+    }
+
+    > .game__player {
+        display: block;
+        width: $gutter*7/2;
+        height: $gutter*7/2;
+        position: absolute;
+        top: -$gutter*7/2;
+        left: 50%;
+        margin-left: -$gutter*7/4;
+
+        @include border-radius(50%);
+        background-color: rgba(0,0,0,0.1);
+        background-size: 100% 100%;
+        border: 1px solid #fff;
+
+        &[data-player="rajini"] {
+            background-image: url("/images/rajini.png");
+        }
+        &[data-player="batman"] {
+            background-image: url("/images/batman.png");
+        }
+
+        &[data-player="you"] {
+            background-image: url("/images/player.png");
+            top: auto;
+            bottom: -$gutter*7/2;
         }
     }
 
