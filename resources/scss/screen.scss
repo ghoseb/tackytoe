@@ -1,0 +1,118 @@
+@import "compass";
+
+
+$color-bg : #F0F5F7;
+$color-text : #222;
+
+$gutter: 24px;
+
+
+
+
+/**
+ * RESET
+ */
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: calibri, helvertica, tahoma, arial;
+    @include user-select(none);
+    @include box-sizing(border-box);
+}
+
+
+
+/**
+ * LAYOUT
+ */
+html, body, #app {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: $color-bg;
+}
+
+
+
+
+
+/**
+ * Player Select
+ */
+.player-select {
+    width: 320px;
+    height: 320px;
+    padding: $gutter;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: - 160px;
+    text-align: center;
+
+    > .player-select__msg {
+        display: block;
+        margin: $gutter/6;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: $color-text;
+    }
+
+    > .player-select__title {
+        display: block;
+        margin-bottom: $gutter;
+        text-transform: uppercase;
+        font-size: 32px;
+        color: $color-text;
+    }
+
+    > .player-select__vs {
+        display: block;
+        font-size:  16px;
+        color: rgba($color-text, 0.6);
+        margin-bottom: $gutter;
+        &:before, &:after {
+            content: "";
+            display: block;
+            width: $gutter*3;
+            height: 1px;
+            background: rgba($color-text, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: 1px;
+        }
+        &:after {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    > .player-select__items-list {
+        display: block;
+        text-align: center;
+        > .player-select__item {
+            display: inline-block;
+            width: $gutter*4;
+            height: $gutter*4;
+            @include border-radius(50%);
+            background-color: rgba(0,0,0,0.1);
+            background-size: 100% 100%;
+            margin-right: $gutter;
+            &:last-child { margin-right: 0; }
+            @include transition(all 0.25s ease-out 0s);
+
+            &:hover {
+                @include scale(1.1);
+            }
+
+            &[data-player="rajini"] {
+                background-image: url("/images/rajini.png");
+            }
+            &[data-player="batman"] {
+                background-image: url("/images/batman.png");
+            }
+        }
+    }
+
+}
