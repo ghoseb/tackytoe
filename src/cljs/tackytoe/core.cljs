@@ -10,35 +10,25 @@
 
 
 (defonce ^{:doc "The global application state."}
-  app-state (atom {:current-page "/"}))
+  app-state (atom {:current-page home/home
+                   :board ["x" "o" "" "" "" "x" "" "" ""]}))
 
 
 (defn ^:private put! [k v]
   (swap! app-state assoc k v))
 
-;;; dummy component used for routing
-(defn current-page-will-mount []
-  (put! :current-page #'home/home))
-
-
-(defn current-page-render []
-  [(@app-state :current-page)])
-
-
-(defn current-page []
-  (reagent/create-class {:component-will-mount current-page-will-mount
-                         :reagent-render current-page-render}))
-
 
 (secretary/set-config! :prefix "#")
 
-(defroute "/" []
-  (put! :current-page #'home/home))
+(defroute "^/$" []
+  (put! :current-page home/home))
 
 (defroute "/game" []
-  (put! :current-page #'game/game))
+  (put! :current-page #(game/game app-state)))
 
-(hook-browser-navigation!)
+(defn app []
+  [(@app-state :current-page)])
 
 (defn main []
-  (reagent/render [current-page] (js/document.getElementById "app")))
+  (hook-browser-navigation!)
+  (reagent/render-component [app] (js/document.getElementById "app")))
