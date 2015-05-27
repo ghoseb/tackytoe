@@ -9,12 +9,12 @@
 
 
 (def opponents [{:name "rajini" :url "#/vs/rajini"}
-              {:name "batman" :url "#/vs/batman"}])
+                {:name "batman" :url "#/vs/batman"}])
 
 (defn ^:private player
   "Return a new player object given the name."
   ([]
-   (player "batman"))
+   (rand-nth opponents))
   ([vs]
    (case vs
      "rajini" (opponents 0)
@@ -35,7 +35,7 @@
 
 (secretary/set-config! :prefix "#")
 
-(defroute "^/$" []
+(defroute "/" []
   (put! :current-page #(tah/home opponents)))
 
 (defroute "/vs/:vs" [vs]

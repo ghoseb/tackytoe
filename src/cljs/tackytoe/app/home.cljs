@@ -1,6 +1,7 @@
 (ns tackytoe.app.home)
 
-(defn home [players]
+(defn home
+  [players]
   [:div.player-select
    [:h2.player-select__msg "Welcome to"]
    [:h1.player-select__title "Tic Tac Toe"]

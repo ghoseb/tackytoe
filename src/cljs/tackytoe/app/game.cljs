@@ -1,4 +1,5 @@
-(ns tackytoe.app.game)
+(ns tackytoe.app.game
+  (:require [secretary.core :refer [dispatch!]]))
 
 
 (defn game
@@ -9,8 +10,8 @@
                        ^{:key idx} [:div.game__cell {:data-marked cell}])]
    [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn false}]
    [:div.game__player {:data-player "user"}]
-   [:a.game__home {:href "/"}]
-   [:a.game__reset {:href "javascript:void(0)"}]])
+    [:button.game__home {:on-click #(dispatch! "/")}]
+   [:button.game__reset {:href "javascript:void(0)"}]])
 
 
 
@@ -18,7 +19,7 @@
 ;; Use this markup to render results -->
 
 ;; [:div.result
-;;    [:h2.result__label "Rajini Won"]
-;;    [:div.result__winner {:data-player "rajini"}]
-;;    [:h1.result__text "Mind It!!"]
-;;    [:a.result__home {:href "/"}]]
+;;  [:h2.result__label "Rajini Won"]
+;;  [:div.result__winner {:data-player "rajini"}]
+;;  [:h1.result__text "Mind It!!"]
+;;  [:a.result__home {:href "/"}]]
