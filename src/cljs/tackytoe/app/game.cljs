@@ -7,7 +7,7 @@
   [:div.game
    [:div.game__board (for [[idx cell] (map-indexed vector (:board @state))]
                        ^{:key idx} [:div.game__cell {:data-marked cell}])]
-   [:div.game__player {:data-player "batman" :data-turn false}]
+   [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn false}]
    [:div.game__player {:data-player "user"}]
    [:a.game__home {:href "/"}]
    [:a.game__reset {:href "javascript:void(0)"}]])
