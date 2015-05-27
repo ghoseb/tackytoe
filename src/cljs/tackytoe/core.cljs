@@ -45,6 +45,7 @@
 (defn app []
   [(@app-state :current-page)])
 
+(hook-browser-navigation!)
+
 (defn main []
-  (hook-browser-navigation!)
   (reagent/render-component [app] (js/document.getElementById "app")))

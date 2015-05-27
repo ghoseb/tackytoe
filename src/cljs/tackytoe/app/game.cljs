@@ -1,5 +1,4 @@
-(ns tackytoe.app.game
-  (:require [secretary.core :refer [dispatch!]]))
+(ns tackytoe.app.game)
 
 
 (defn game
@@ -9,8 +8,8 @@
    [:div.game__board (for [[idx cell] (map-indexed vector (:board @state))]
                        ^{:key idx} [:div.game__cell {:data-marked cell}])]
    [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn false}]
-   [:div.game__player {:data-player "user"}]
-    [:button.game__home {:on-click #(dispatch! "/")}]
+   [:div.game__player {:data-player "user" :data-turn true}]
+    [:button.game__home {:on-click #(set! js/window.location.hash "")}]
    [:button.game__reset {:href "javascript:void(0)"}]])
 
 
