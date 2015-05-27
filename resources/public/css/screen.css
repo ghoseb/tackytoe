@@ -1,7 +1,7 @@
 /**
  * RESET
  */
-/* line 20, ../../scss/screen.scss */
+/* line 44, ../../scss/screen.scss */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@
 /**
  * LAYOUT
  */
-/* line 34, ../../scss/screen.scss */
+/* line 58, ../../scss/screen.scss */
 html, body, #app {
   width: 100%;
   height: 100%;
@@ -29,7 +29,7 @@ html, body, #app {
 /**
  * Player Select
  */
-/* line 48, ../../scss/screen.scss */
+/* line 72, ../../scss/screen.scss */
 .player-select {
   width: 320px;
   height: 320px;
@@ -40,7 +40,7 @@ html, body, #app {
   margin: -160px;
   text-align: center;
 }
-/* line 58, ../../scss/screen.scss */
+/* line 82, ../../scss/screen.scss */
 .player-select > .player-select__msg {
   display: block;
   margin: 4px;
@@ -48,7 +48,7 @@ html, body, #app {
   font-size: 16px;
   color: #222222;
 }
-/* line 66, ../../scss/screen.scss */
+/* line 90, ../../scss/screen.scss */
 .player-select > .player-select__title {
   display: block;
   margin-bottom: 24px;
@@ -56,14 +56,14 @@ html, body, #app {
   font-size: 32px;
   color: #222222;
 }
-/* line 74, ../../scss/screen.scss */
+/* line 98, ../../scss/screen.scss */
 .player-select > .player-select__vs {
   display: block;
   font-size: 16px;
   color: rgba(34, 34, 34, 0.6);
   margin-bottom: 24px;
 }
-/* line 79, ../../scss/screen.scss */
+/* line 103, ../../scss/screen.scss */
 .player-select > .player-select__vs:before, .player-select > .player-select__vs:after {
   content: "";
   display: block;
@@ -75,17 +75,17 @@ html, body, #app {
   left: 0;
   margin-top: 1px;
 }
-/* line 90, ../../scss/screen.scss */
+/* line 114, ../../scss/screen.scss */
 .player-select > .player-select__vs:after {
   left: auto;
   right: 0;
 }
-/* line 96, ../../scss/screen.scss */
+/* line 120, ../../scss/screen.scss */
 .player-select > .player-select__items-list {
   display: block;
   text-align: center;
 }
-/* line 99, ../../scss/screen.scss */
+/* line 123, ../../scss/screen.scss */
 .player-select > .player-select__items-list > .player-select__item {
   display: inline-block;
   width: 96px;
@@ -108,11 +108,11 @@ html, body, #app {
   -moz-box-shadow: 1px 3px 0 0 #c1cacd, 1px 2px 0 0 #c1cacd, 1px 1px 0 0 #c1cacd, 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
   box-shadow: 1px 3px 0 0 #c1cacd, 1px 2px 0 0 #c1cacd, 1px 1px 0 0 #c1cacd, 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
 }
-/* line 108, ../../scss/screen.scss */
+/* line 132, ../../scss/screen.scss */
 .player-select > .player-select__items-list > .player-select__item:last-child {
   margin-right: 0;
 }
-/* line 117, ../../scss/screen.scss */
+/* line 140, ../../scss/screen.scss */
 .player-select > .player-select__items-list > .player-select__item:hover {
   -webkit-transform: scale(1.1, 1.1);
   -moz-transform: scale(1.1, 1.1);
@@ -120,19 +120,19 @@ html, body, #app {
   -o-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
 }
-/* line 121, ../../scss/screen.scss */
+/* line 142, ../../scss/screen.scss */
 .player-select > .player-select__items-list > .player-select__item[data-player="rajini"] {
   background-image: url("/images/rajini.png");
 }
-/* line 124, ../../scss/screen.scss */
+/* line 143, ../../scss/screen.scss */
 .player-select > .player-select__items-list > .player-select__item[data-player="batman"] {
   background-image: url("/images/batman.png");
 }
 
 /**
- * Player Select
+ * Game
  */
-/* line 135, ../../scss/screen.scss */
+/* line 152, ../../scss/screen.scss */
 .game {
   width: 320px;
   height: 320px;
@@ -141,7 +141,7 @@ html, body, #app {
   left: 50%;
   margin: -160px;
 }
-/* line 143, ../../scss/screen.scss */
+/* line 160, ../../scss/screen.scss */
 .game > .game__board {
   width: 240px;
   height: 240px;
@@ -150,7 +150,7 @@ html, body, #app {
   left: 50%;
   margin: -120px;
 }
-/* line 150, ../../scss/screen.scss */
+/* line 167, ../../scss/screen.scss */
 .game > .game__board > .game__cell {
   width: 70px;
   height: 70px;
@@ -172,15 +172,15 @@ html, body, #app {
   -o-transition: all 0.25s ease-out 0s;
   transition: all 0.25s ease-out 0s;
 }
-/* line 165, ../../scss/screen.scss */
+/* line 182, ../../scss/screen.scss */
 .game > .game__board > .game__cell:nth-child(3n + 3) {
   margin-right: 0;
 }
-/* line 166, ../../scss/screen.scss */
+/* line 183, ../../scss/screen.scss */
 .game > .game__board > .game__cell:nth-child(n + 7) {
   margin-bottom: 0;
 }
-/* line 168, ../../scss/screen.scss */
+/* line 185, ../../scss/screen.scss */
 .game > .game__board > .game__cell:hover {
   -webkit-transform: scale(1.1, 1.1);
   -moz-transform: scale(1.1, 1.1);
@@ -188,12 +188,12 @@ html, body, #app {
   -o-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
 }
-/* line 173, ../../scss/screen.scss */
+/* line 190, ../../scss/screen.scss */
 .game > .game__board > .game__cell[data-marked="x"], .game > .game__board > .game__cell[data-marked="o"] {
   text-align: center;
   cursor: default;
 }
-/* line 176, ../../scss/screen.scss */
+/* line 193, ../../scss/screen.scss */
 .game > .game__board > .game__cell[data-marked="x"]:hover, .game > .game__board > .game__cell[data-marked="o"]:hover {
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
@@ -201,7 +201,7 @@ html, body, #app {
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 177, ../../scss/screen.scss */
+/* line 194, ../../scss/screen.scss */
 .game > .game__board > .game__cell[data-marked="x"]:after, .game > .game__board > .game__cell[data-marked="o"]:after {
   display: block;
   content: "x";
@@ -212,17 +212,41 @@ html, body, #app {
   font-weight: bold;
   color: #ff6826;
 }
-/* line 188, ../../scss/screen.scss */
+/* line 205, ../../scss/screen.scss */
 .game > .game__board > .game__cell[data-marked="o"] {
   text-align: center;
 }
-/* line 190, ../../scss/screen.scss */
+/* line 207, ../../scss/screen.scss */
 .game > .game__board > .game__cell[data-marked="o"]:after {
   content: "o";
   font-size: 42px;
   color: #32b588;
 }
-/* line 200, ../../scss/screen.scss */
+/* line 213, ../../scss/screen.scss */
+.game > .game__board > .game__cell.highlight {
+  animation: glow 2s linear infinite 0s;
+  -webkit-animation: glow 2s linear infinite 0s;
+  -moz-animation: glow 2s linear infinite 0s;
+  -ms-animation: glow 2s linear infinite 0s;
+  -o-animation: glow 2s linear infinite 0s;
+}
+/* line 215, ../../scss/screen.scss */
+.game > .game__board > .game__cell.highlight[data-marked="x"] {
+  background: #ff6826;
+}
+/* line 217, ../../scss/screen.scss */
+.game > .game__board > .game__cell.highlight[data-marked="x"]:after {
+  color: #fff;
+}
+/* line 219, ../../scss/screen.scss */
+.game > .game__board > .game__cell.highlight[data-marked="o"] {
+  background: #32b588;
+}
+/* line 221, ../../scss/screen.scss */
+.game > .game__board > .game__cell.highlight[data-marked="o"]:after {
+  color: #fff;
+}
+/* line 227, ../../scss/screen.scss */
 .game > .game__player {
   display: block;
   width: 84px;
@@ -240,17 +264,381 @@ html, body, #app {
   background-size: 100% 100%;
   border: 1px solid #fff;
 }
-/* line 214, ../../scss/screen.scss */
+/* line 241, ../../scss/screen.scss */
 .game > .game__player[data-player="rajini"] {
   background-image: url("/images/rajini.png");
 }
-/* line 217, ../../scss/screen.scss */
+/* line 242, ../../scss/screen.scss */
 .game > .game__player[data-player="batman"] {
   background-image: url("/images/batman.png");
 }
-/* line 221, ../../scss/screen.scss */
-.game > .game__player[data-player="you"] {
+/* line 243, ../../scss/screen.scss */
+.game > .game__player[data-player="user"] {
   background-image: url("/images/player.png");
   top: auto;
   bottom: -84px;
+}
+/* line 249, ../../scss/screen.scss */
+.game > .game__player[data-turn="true"]:after {
+  content: "?";
+  position: absolute;
+  top: -5px;
+  right: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222222;
+  animation: think 1s linear infinite 0s;
+  -webkit-animation: think 1s linear infinite 0s;
+  -moz-animation: think 1s linear infinite 0s;
+  -ms-animation: think 1s linear infinite 0s;
+  -o-animation: think 1s linear infinite 0s;
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  -ms-transform-origin: bottom center;
+  -o-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+/* line 263, ../../scss/screen.scss */
+.game > .game__home,
+.game > .game__reset {
+  display: block;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  bottom: -60px;
+  left: 48px;
+  background-image: url("/images/home.png");
+  background-size: 100% 100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+}
+/* line 273, ../../scss/screen.scss */
+.game > .game__home:hover,
+.game > .game__reset:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/* line 277, ../../scss/screen.scss */
+.game > .game__reset {
+  left: auto;
+  right: 48px;
+  background-image: url("/images/restart.png");
+}
+
+@keyframes think {
+  /* line 287, ../../scss/screen.scss */
+  0% {
+    transform: scale(1) rotateZ(6deg);
+    -webkit-transform: scale(1) rotateZ(6deg);
+    -moz-transform: scale(1) rotateZ(6deg);
+    -ms-transform: scale(1) rotateZ(6deg);
+    -o-transform: scale(1) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+    top: -5px;
+  }
+
+  /* line 292, ../../scss/screen.scss */
+  100% {
+    transform: scale(1.5) rotateZ(6deg);
+    -webkit-transform: scale(1.5) rotateZ(6deg);
+    -moz-transform: scale(1.5) rotateZ(6deg);
+    -ms-transform: scale(1.5) rotateZ(6deg);
+    -o-transform: scale(1.5) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    top: -15px;
+  }
+}
+
+@-webkit-keyframes think {
+  /* line 287, ../../scss/screen.scss */
+  0% {
+    transform: scale(1) rotateZ(6deg);
+    -webkit-transform: scale(1) rotateZ(6deg);
+    -moz-transform: scale(1) rotateZ(6deg);
+    -ms-transform: scale(1) rotateZ(6deg);
+    -o-transform: scale(1) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+    top: -5px;
+  }
+
+  /* line 292, ../../scss/screen.scss */
+  100% {
+    transform: scale(1.5) rotateZ(6deg);
+    -webkit-transform: scale(1.5) rotateZ(6deg);
+    -moz-transform: scale(1.5) rotateZ(6deg);
+    -ms-transform: scale(1.5) rotateZ(6deg);
+    -o-transform: scale(1.5) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    top: -15px;
+  }
+}
+
+@-moz-keyframes think {
+  /* line 287, ../../scss/screen.scss */
+  0% {
+    transform: scale(1) rotateZ(6deg);
+    -webkit-transform: scale(1) rotateZ(6deg);
+    -moz-transform: scale(1) rotateZ(6deg);
+    -ms-transform: scale(1) rotateZ(6deg);
+    -o-transform: scale(1) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+    top: -5px;
+  }
+
+  /* line 292, ../../scss/screen.scss */
+  100% {
+    transform: scale(1.5) rotateZ(6deg);
+    -webkit-transform: scale(1.5) rotateZ(6deg);
+    -moz-transform: scale(1.5) rotateZ(6deg);
+    -ms-transform: scale(1.5) rotateZ(6deg);
+    -o-transform: scale(1.5) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    top: -15px;
+  }
+}
+
+@-ms-keyframes think {
+  /* line 287, ../../scss/screen.scss */
+  0% {
+    transform: scale(1) rotateZ(6deg);
+    -webkit-transform: scale(1) rotateZ(6deg);
+    -moz-transform: scale(1) rotateZ(6deg);
+    -ms-transform: scale(1) rotateZ(6deg);
+    -o-transform: scale(1) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+    top: -5px;
+  }
+
+  /* line 292, ../../scss/screen.scss */
+  100% {
+    transform: scale(1.5) rotateZ(6deg);
+    -webkit-transform: scale(1.5) rotateZ(6deg);
+    -moz-transform: scale(1.5) rotateZ(6deg);
+    -ms-transform: scale(1.5) rotateZ(6deg);
+    -o-transform: scale(1.5) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    top: -15px;
+  }
+}
+
+@-o-keyframes think {
+  /* line 287, ../../scss/screen.scss */
+  0% {
+    transform: scale(1) rotateZ(6deg);
+    -webkit-transform: scale(1) rotateZ(6deg);
+    -moz-transform: scale(1) rotateZ(6deg);
+    -ms-transform: scale(1) rotateZ(6deg);
+    -o-transform: scale(1) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    opacity: 0.5;
+    top: -5px;
+  }
+
+  /* line 292, ../../scss/screen.scss */
+  100% {
+    transform: scale(1.5) rotateZ(6deg);
+    -webkit-transform: scale(1.5) rotateZ(6deg);
+    -moz-transform: scale(1.5) rotateZ(6deg);
+    -ms-transform: scale(1.5) rotateZ(6deg);
+    -o-transform: scale(1.5) rotateZ(6deg);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    top: -15px;
+  }
+}
+
+@keyframes glow {
+  /* line 300, ../../scss/screen.scss */
+  0% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+
+  /* line 303, ../../scss/screen.scss */
+  50% {
+    -webkit-box-shadow: 0 0 0 8px #c1cacd;
+    -moz-box-shadow: 0 0 0 8px #c1cacd;
+    box-shadow: 0 0 0 8px #c1cacd;
+  }
+
+  /* line 306, ../../scss/screen.scss */
+  100% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+}
+
+@-webkit-keyframes glow {
+  /* line 300, ../../scss/screen.scss */
+  0% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+
+  /* line 303, ../../scss/screen.scss */
+  50% {
+    -webkit-box-shadow: 0 0 0 8px #c1cacd;
+    -moz-box-shadow: 0 0 0 8px #c1cacd;
+    box-shadow: 0 0 0 8px #c1cacd;
+  }
+
+  /* line 306, ../../scss/screen.scss */
+  100% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+}
+
+@-moz-keyframes glow {
+  /* line 300, ../../scss/screen.scss */
+  0% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+
+  /* line 303, ../../scss/screen.scss */
+  50% {
+    -webkit-box-shadow: 0 0 0 8px #c1cacd;
+    -moz-box-shadow: 0 0 0 8px #c1cacd;
+    box-shadow: 0 0 0 8px #c1cacd;
+  }
+
+  /* line 306, ../../scss/screen.scss */
+  100% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+}
+
+@-ms-keyframes glow {
+  /* line 300, ../../scss/screen.scss */
+  0% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+
+  /* line 303, ../../scss/screen.scss */
+  50% {
+    -webkit-box-shadow: 0 0 0 8px #c1cacd;
+    -moz-box-shadow: 0 0 0 8px #c1cacd;
+    box-shadow: 0 0 0 8px #c1cacd;
+  }
+
+  /* line 306, ../../scss/screen.scss */
+  100% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+}
+
+@-o-keyframes glow {
+  /* line 300, ../../scss/screen.scss */
+  0% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+
+  /* line 303, ../../scss/screen.scss */
+  50% {
+    -webkit-box-shadow: 0 0 0 8px #c1cacd;
+    -moz-box-shadow: 0 0 0 8px #c1cacd;
+    box-shadow: 0 0 0 8px #c1cacd;
+  }
+
+  /* line 306, ../../scss/screen.scss */
+  100% {
+    -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+    box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
+  }
+}
+
+/**
+ * Result
+ */
+/* line 316, ../../scss/screen.scss */
+.result {
+  width: 320px;
+  height: 320px;
+  padding: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -160px;
+  text-align: center;
+}
+/* line 326, ../../scss/screen.scss */
+.result > .result__label {
+  display: block;
+  margin: 4px;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: rgba(34, 34, 34, 0.5);
+}
+/* line 334, ../../scss/screen.scss */
+.result > .result__winner {
+  display: block;
+  width: 96px;
+  height: 96px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-size: 100% 100%;
+  margin: 24px auto;
+}
+/* line 343, ../../scss/screen.scss */
+.result > .result__winner[data-player="rajini"] {
+  background-image: url("/images/rajini.png");
+}
+/* line 344, ../../scss/screen.scss */
+.result > .result__winner[data-player="batman"] {
+  background-image: url("/images/batman.png");
+}
+/* line 345, ../../scss/screen.scss */
+.result > .result__winner[data-player="user"] {
+  background-image: url("/images/player.png");
+}
+/* line 349, ../../scss/screen.scss */
+.result > .result__text {
+  display: block;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  font-size: 32px;
+  color: #222222;
+}
+/* line 356, ../../scss/screen.scss */
+.result > .result__home {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin: 48px auto 0;
+  background-image: url("/images/home.png");
+  background-size: 100% 100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+}
+/* line 364, ../../scss/screen.scss */
+.result > .result__home:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }

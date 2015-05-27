@@ -13,6 +13,30 @@ $gutter: 24px;
 
 
 
+@mixin animation ($name:no-name, $dur:3s, $tf:linear, $itc:infinite, $del:0s ) {
+    animation: $name $dur $tf $itc $del;
+    -webkit-animation: $name $dur $tf $itc $del;
+    -moz-animation: $name $dur $tf $itc $del;
+    -ms-animation: $name $dur $tf $itc $del;
+    -o-animation: $name $dur $tf $itc $del;
+}
+
+@mixin keyframes ($name) {
+    @keyframes $name { @content }
+    @-webkit-keyframes $name { @content }
+    @-moz-keyframes $name { @content }
+    @-ms-keyframes $name { @content }
+    @-o-keyframes $name { @content }
+}
+
+@mixin my-transform ($value) {
+    transform: $value;
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
+}
+
 
 /**
  * RESET
@@ -113,24 +137,17 @@ html, body, #app {
                 1px 1px 0 0 $color-edge,
                 0 0 0 1px rgba(#fff, 0.7) inset );
 
+            &:hover { @include scale(1.1); }
 
-            &:hover {
-                @include scale(1.1);
-            }
-
-            &[data-player="rajini"] {
-                background-image: url("/images/rajini.png");
-            }
-            &[data-player="batman"] {
-                background-image: url("/images/batman.png");
-            }
+            &[data-player="rajini"] { background-image: url("/images/rajini.png"); }
+            &[data-player="batman"] { background-image: url("/images/batman.png"); }
         }
     }
 }
 
 
 /**
- * Player Select
+ * Game
  */
 .game {
     width: 320px;
@@ -193,7 +210,17 @@ html, body, #app {
                     color: $color-green;
                 }
             }
-
+            &.highlight {
+                @include animation(glow, 2s, linear, infinite, 0s);
+                &[data-marked="x"]{
+                    background: $color-red;
+                    &:after { color: #fff;}
+                }
+                &[data-marked="o"]{
+                    background: $color-green;
+                    &:after { color: #fff;}
+                }
+            }
         }
     }
 
@@ -211,17 +238,131 @@ html, body, #app {
         background-size: 100% 100%;
         border: 1px solid #fff;
 
-        &[data-player="rajini"] {
-            background-image: url("/images/rajini.png");
-        }
-        &[data-player="batman"] {
-            background-image: url("/images/batman.png");
-        }
-
-        &[data-player="you"] {
+        &[data-player="rajini"] { background-image: url("/images/rajini.png"); }
+        &[data-player="batman"] { background-image: url("/images/batman.png"); }
+        &[data-player="user"] {
             background-image: url("/images/player.png");
             top: auto;
             bottom: -$gutter*7/2;
+        }
+
+        &[data-turn="true"]:after {
+            content: "?";
+            position: absolute;
+            top: -5px;
+            right: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: $color-text;
+            @include animation(think, 1s, linear, infinite, 0s);
+            @include transform-origin(bottom, center);
+        }
+    }
+
+    > .game__home,
+    > .game__reset {
+        display: block;
+        width: $gutter*3/2;
+        height: $gutter*3/2;
+        position: absolute;
+        bottom: -$gutter*5/2;
+        left: $gutter*2;
+        background-image: url("/images/home.png");
+        background-size: 100% 100%;
+        @include opacity(0.3);
+        &:hover {
+            @include opacity(1);
+        }
+    }
+    > .game__reset {
+        left: auto;
+        right: $gutter*2;
+        background-image: url("/images/restart.png");
+    }
+
+}
+
+
+@include keyframes(think) {
+    0% {
+        @include my-transform(scale(1) rotateZ(6deg));
+        @include opacity(0.5);
+        top: -5px;
+    }
+    100% {
+        @include my-transform(scale(1.5) rotateZ(6deg));
+        @include opacity(0);
+        top: -15px;
+    }
+}
+
+@include keyframes(glow) {
+    0% {
+        @include box-shadow(0 0 0 1px rgba($color-edge, 0));
+    }
+    50% {
+        @include box-shadow(0 0 0 8px $color-edge);
+    }
+    100% {
+        @include box-shadow(0 0 0 1px rgba($color-edge, 0));
+    }
+}
+
+
+
+/**
+ * Result
+ */
+.result {
+    width: 320px;
+    height: 320px;
+    padding: $gutter;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: - 160px;
+    text-align: center;
+
+    > .result__label {
+        display: block;
+        margin: $gutter/6;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: rgba($color-text, 0.5);
+    }
+
+    > .result__winner {
+        display: block;
+        width: $gutter*4;
+        height: $gutter*4;
+        @include border-radius(50%);
+        background-color: rgba(0,0,0,0.1);
+        background-size: 100% 100%;
+        margin: $gutter auto;
+
+        &[data-player="rajini"] { background-image: url("/images/rajini.png"); }
+        &[data-player="batman"] { background-image: url("/images/batman.png"); }
+        &[data-player="user"] { background-image: url("/images/player.png"); }
+    }
+
+
+    > .result__text {
+        display: block;
+        margin-bottom: $gutter;
+        text-transform: uppercase;
+        font-size: 32px;
+        color: $color-text;
+    }
+    > .result__home {
+        display: block;
+        width: $gutter*3/2;
+        height: $gutter*3/2;
+        margin: $gutter*2 auto 0;
+        background-image: url("/images/home.png");
+        background-size: 100% 100%;
+        @include opacity(0.3);
+        &:hover {
+            @include opacity(1);
         }
     }
 
