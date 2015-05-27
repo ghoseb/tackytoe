@@ -9,6 +9,7 @@
                        ^{:key idx} [:div.game__cell {:data-marked cell}])]
    [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn false}]
    [:div.game__player {:data-player "user" :data-turn true}]
+   [:div.game__turn.show]
     [:button.game__home {:on-click #(set! js/window.location.hash "")}]
    [:button.game__reset {:href "javascript:void(0)"}]])
 

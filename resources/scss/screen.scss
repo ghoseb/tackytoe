@@ -259,6 +259,36 @@ html, body, #app {
         }
     }
 
+    > .game__turn {
+        width: 100%;
+        height: $gutter;
+        position: absolute;
+        bottom: -$gutter*5;
+        left: 0;
+        overflow: hidden;
+        text-align: center;
+        &:after {
+            content: "Your Turn";
+            height: $gutter;
+            width: 100px;
+            line-height: $gutter;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 13px;
+            color: rgba($color-text, 0);
+            position: relative;
+            top: 10px;
+            @include transition(all 0.2s linear 0s);
+        }
+
+        &.show {
+            &:after {
+                color: rgba($color-text, 0.5);
+                top: 0;
+            }
+        }
+    }
+
     > .game__home,
     > .game__reset {
         display: block;
@@ -267,8 +297,11 @@ html, body, #app {
         position: absolute;
         bottom: -$gutter*5/2;
         left: $gutter*2;
+        background-color: transparent;
         background-image: url("/images/home.png");
         background-size: 100% 100%;
+        border: none;
+        outline-width: 0;
         @include opacity(0.3);
         &:hover {
             @include opacity(1);
@@ -283,30 +316,6 @@ html, body, #app {
 }
 
 
-@include keyframes(think) {
-    0% {
-        @include my-transform(scale(1) rotateZ(6deg));
-        @include opacity(0.5);
-        top: -5px;
-    }
-    100% {
-        @include my-transform(scale(1.5) rotateZ(6deg));
-        @include opacity(0);
-        top: -15px;
-    }
-}
-
-@include keyframes(glow) {
-    0% {
-        @include box-shadow(0 0 0 1px rgba($color-edge, 0));
-    }
-    50% {
-        @include box-shadow(0 0 0 8px $color-edge);
-    }
-    100% {
-        @include box-shadow(0 0 0 1px rgba($color-edge, 0));
-    }
-}
 
 
 
@@ -358,12 +367,42 @@ html, body, #app {
         width: $gutter*3/2;
         height: $gutter*3/2;
         margin: $gutter*2 auto 0;
+        border: none;
+        background-color: transparent;
         background-image: url("/images/home.png");
         background-size: 100% 100%;
+        outline-width: 0;
         @include opacity(0.3);
         &:hover {
             @include opacity(1);
         }
     }
 
+}
+
+
+
+@include keyframes(think) {
+    0% {
+        @include my-transform(scale(1) rotateZ(6deg));
+        @include opacity(0.5);
+        top: -5px;
+    }
+    100% {
+        @include my-transform(scale(1.5) rotateZ(6deg));
+        @include opacity(0);
+        top: -15px;
+    }
+}
+
+@include keyframes(glow) {
+    0% {
+        @include box-shadow(0 0 0 1px rgba($color-edge, 0));
+    }
+    50% {
+        @include box-shadow(0 0 0 8px $color-edge);
+    }
+    100% {
+        @include box-shadow(0 0 0 1px rgba($color-edge, 0));
+    }
 }
