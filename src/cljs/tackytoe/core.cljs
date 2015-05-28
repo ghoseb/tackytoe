@@ -10,7 +10,7 @@
 
 
 (def opponents [{:name "rajini" :url "#/vs/rajini"}
-                {:name "batman" :url "#/vs/batman"}])
+                {:name "batman" :url "#/vs/rakhi"}])
 
 (defn ^:private player
   "Return a new player object given the name."
@@ -19,7 +19,7 @@
   ([vs]
    (case vs
      "rajini" (opponents 0)
-     "batman" (opponents 1)
+     "rakhi" (opponents 1)
      (opponents 0))))
 
 

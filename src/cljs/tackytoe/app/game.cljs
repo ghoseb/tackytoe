@@ -58,7 +58,8 @@
      [:div.game__board (for [[idx cell] (map-indexed vector (:board @state))]
                          ^{:key idx} [:div.game__cell {:data-marked cell
                                                        :on-click #(move-when-valid state idx)
-                                                       :class (when (win? idx) "highlight")}])]
+                                                       :class (when (win? idx)
+                                                                "highlight")}])]
      [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn (turn? state :computer)}]
      [:div.game__player {:data-player "user" :data-turn (turn? state :human)}]
      (cond

@@ -1,6 +1,6 @@
 (ns tackytoe.server
   (:require [clojure.java.io :as io]
-            [tackytoe.dev :refer [is-dev? inject-devmode-html browser-repl start-figwheel]]
+            [tackytoe.dev :refer [is-dev? browser-repl start-figwheel]]
             [compojure.core :refer [GET defroutes]]
             [compojure.route :refer [resources]]
             [ring.middleware.reload :as reload]
