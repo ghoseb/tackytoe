@@ -41,7 +41,7 @@
                (valid-move? board idx))
       (play-move state idx)
       (js/setTimeout #(play-move state (ai (:board @state) (:mark @state)))
-                     (rand-int 2000)))))
+                     (rand-int 1500)))))
 
 
 (defn turn?
@@ -71,9 +71,8 @@
 
 
 ;; Use this markup to render results -->
-
-;; [:div.result
-;;  [:h2.result__label "Rajini Won"]
-;;  [:div.result__winner {:data-player "rajini"}]
-;;  [:h1.result__text "Mind It!!"]
-;;  [:a.result__home {:href "/"}]]
+  ;; [:div.result
+  ;;  [:h2.result__label "Rajini Won"]
+  ;;  [:div.result__winner {:data-player "rajini"}]
+  ;;  [:h1.result__text "Mind It!!"]
+  ;;  [:a.result__home {:href "/"}]]
