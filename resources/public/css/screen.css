@@ -327,11 +327,29 @@ html, body, #app {
   transition: all 0.2s linear 0s;
 }
 /* line 285, ../../scss/screen.scss */
-.game > .game__turn.show:after {
+.game > .game__turn.show:after, .game > .game__turn.showturn:after {
   color: rgba(34, 34, 34, 0.5);
   top: 0;
 }
-/* line 293, ../../scss/screen.scss */
+/* line 292, ../../scss/screen.scss */
+.game > .game__turn.showover:after {
+  content: "Game Over";
+  color: #ff6826;
+  top: 0;
+}
+/* line 300, ../../scss/screen.scss */
+.game > .game__turn.showloss:after {
+  content: "You Loss";
+  color: #ff6826;
+  top: 0;
+}
+/* line 308, ../../scss/screen.scss */
+.game > .game__turn.showwin:after {
+  content: "You Win";
+  color: #32b588;
+  top: 0;
+}
+/* line 319, ../../scss/screen.scss */
 .game > .game__home,
 .game > .game__reset {
   display: block;
@@ -348,13 +366,13 @@ html, body, #app {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
 }
-/* line 306, ../../scss/screen.scss */
+/* line 332, ../../scss/screen.scss */
 .game > .game__home:hover,
 .game > .game__reset:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 310, ../../scss/screen.scss */
+/* line 336, ../../scss/screen.scss */
 .game > .game__reset {
   left: auto;
   right: 48px;
@@ -364,7 +382,7 @@ html, body, #app {
 /**
  * Result
  */
-/* line 325, ../../scss/screen.scss */
+/* line 351, ../../scss/screen.scss */
 .result {
   width: 320px;
   height: 320px;
@@ -375,7 +393,7 @@ html, body, #app {
   margin: -160px;
   text-align: center;
 }
-/* line 335, ../../scss/screen.scss */
+/* line 361, ../../scss/screen.scss */
 .result > .result__label {
   display: block;
   margin: 4px;
@@ -383,7 +401,7 @@ html, body, #app {
   font-size: 16px;
   color: rgba(34, 34, 34, 0.5);
 }
-/* line 343, ../../scss/screen.scss */
+/* line 369, ../../scss/screen.scss */
 .result > .result__winner {
   display: block;
   width: 96px;
@@ -397,19 +415,19 @@ html, body, #app {
   background-size: 100% 100%;
   margin: 24px auto;
 }
-/* line 352, ../../scss/screen.scss */
+/* line 378, ../../scss/screen.scss */
 .result > .result__winner[data-player="rajini"] {
   background-image: url("/images/rajini.png");
 }
-/* line 353, ../../scss/screen.scss */
+/* line 379, ../../scss/screen.scss */
 .result > .result__winner[data-player="batman"] {
   background-image: url("/images/batman.png");
 }
-/* line 354, ../../scss/screen.scss */
+/* line 380, ../../scss/screen.scss */
 .result > .result__winner[data-player="user"] {
   background-image: url("/images/player.png");
 }
-/* line 358, ../../scss/screen.scss */
+/* line 384, ../../scss/screen.scss */
 .result > .result__text {
   display: block;
   margin-bottom: 24px;
@@ -417,7 +435,7 @@ html, body, #app {
   font-size: 32px;
   color: #222222;
 }
-/* line 365, ../../scss/screen.scss */
+/* line 391, ../../scss/screen.scss */
 .result > .result__home {
   display: block;
   width: 36px;
@@ -431,14 +449,14 @@ html, body, #app {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
 }
-/* line 377, ../../scss/screen.scss */
+/* line 402, ../../scss/screen.scss */
 .result > .result__home:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
 @keyframes think {
-  /* line 387, ../../scss/screen.scss */
+  /* line 412, ../../scss/screen.scss */
   0% {
     transform: scale(1) rotateZ(6deg);
     -webkit-transform: scale(1) rotateZ(6deg);
@@ -450,7 +468,7 @@ html, body, #app {
     top: -5px;
   }
 
-  /* line 392, ../../scss/screen.scss */
+  /* line 417, ../../scss/screen.scss */
   100% {
     transform: scale(1.5) rotateZ(6deg);
     -webkit-transform: scale(1.5) rotateZ(6deg);
@@ -464,7 +482,7 @@ html, body, #app {
 }
 
 @-webkit-keyframes think {
-  /* line 387, ../../scss/screen.scss */
+  /* line 412, ../../scss/screen.scss */
   0% {
     transform: scale(1) rotateZ(6deg);
     -webkit-transform: scale(1) rotateZ(6deg);
@@ -476,7 +494,7 @@ html, body, #app {
     top: -5px;
   }
 
-  /* line 392, ../../scss/screen.scss */
+  /* line 417, ../../scss/screen.scss */
   100% {
     transform: scale(1.5) rotateZ(6deg);
     -webkit-transform: scale(1.5) rotateZ(6deg);
@@ -490,7 +508,7 @@ html, body, #app {
 }
 
 @-moz-keyframes think {
-  /* line 387, ../../scss/screen.scss */
+  /* line 412, ../../scss/screen.scss */
   0% {
     transform: scale(1) rotateZ(6deg);
     -webkit-transform: scale(1) rotateZ(6deg);
@@ -502,7 +520,7 @@ html, body, #app {
     top: -5px;
   }
 
-  /* line 392, ../../scss/screen.scss */
+  /* line 417, ../../scss/screen.scss */
   100% {
     transform: scale(1.5) rotateZ(6deg);
     -webkit-transform: scale(1.5) rotateZ(6deg);
@@ -516,7 +534,7 @@ html, body, #app {
 }
 
 @-ms-keyframes think {
-  /* line 387, ../../scss/screen.scss */
+  /* line 412, ../../scss/screen.scss */
   0% {
     transform: scale(1) rotateZ(6deg);
     -webkit-transform: scale(1) rotateZ(6deg);
@@ -528,7 +546,7 @@ html, body, #app {
     top: -5px;
   }
 
-  /* line 392, ../../scss/screen.scss */
+  /* line 417, ../../scss/screen.scss */
   100% {
     transform: scale(1.5) rotateZ(6deg);
     -webkit-transform: scale(1.5) rotateZ(6deg);
@@ -542,7 +560,7 @@ html, body, #app {
 }
 
 @-o-keyframes think {
-  /* line 387, ../../scss/screen.scss */
+  /* line 412, ../../scss/screen.scss */
   0% {
     transform: scale(1) rotateZ(6deg);
     -webkit-transform: scale(1) rotateZ(6deg);
@@ -554,7 +572,7 @@ html, body, #app {
     top: -5px;
   }
 
-  /* line 392, ../../scss/screen.scss */
+  /* line 417, ../../scss/screen.scss */
   100% {
     transform: scale(1.5) rotateZ(6deg);
     -webkit-transform: scale(1.5) rotateZ(6deg);
@@ -568,21 +586,21 @@ html, body, #app {
 }
 
 @keyframes glow {
-  /* line 400, ../../scss/screen.scss */
+  /* line 425, ../../scss/screen.scss */
   0% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
   }
 
-  /* line 403, ../../scss/screen.scss */
+  /* line 428, ../../scss/screen.scss */
   50% {
     -webkit-box-shadow: 0 0 0 8px #c1cacd;
     -moz-box-shadow: 0 0 0 8px #c1cacd;
     box-shadow: 0 0 0 8px #c1cacd;
   }
 
-  /* line 406, ../../scss/screen.scss */
+  /* line 431, ../../scss/screen.scss */
   100% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
@@ -591,21 +609,21 @@ html, body, #app {
 }
 
 @-webkit-keyframes glow {
-  /* line 400, ../../scss/screen.scss */
+  /* line 425, ../../scss/screen.scss */
   0% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
   }
 
-  /* line 403, ../../scss/screen.scss */
+  /* line 428, ../../scss/screen.scss */
   50% {
     -webkit-box-shadow: 0 0 0 8px #c1cacd;
     -moz-box-shadow: 0 0 0 8px #c1cacd;
     box-shadow: 0 0 0 8px #c1cacd;
   }
 
-  /* line 406, ../../scss/screen.scss */
+  /* line 431, ../../scss/screen.scss */
   100% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
@@ -614,21 +632,21 @@ html, body, #app {
 }
 
 @-moz-keyframes glow {
-  /* line 400, ../../scss/screen.scss */
+  /* line 425, ../../scss/screen.scss */
   0% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
   }
 
-  /* line 403, ../../scss/screen.scss */
+  /* line 428, ../../scss/screen.scss */
   50% {
     -webkit-box-shadow: 0 0 0 8px #c1cacd;
     -moz-box-shadow: 0 0 0 8px #c1cacd;
     box-shadow: 0 0 0 8px #c1cacd;
   }
 
-  /* line 406, ../../scss/screen.scss */
+  /* line 431, ../../scss/screen.scss */
   100% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
@@ -637,21 +655,21 @@ html, body, #app {
 }
 
 @-ms-keyframes glow {
-  /* line 400, ../../scss/screen.scss */
+  /* line 425, ../../scss/screen.scss */
   0% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
   }
 
-  /* line 403, ../../scss/screen.scss */
+  /* line 428, ../../scss/screen.scss */
   50% {
     -webkit-box-shadow: 0 0 0 8px #c1cacd;
     -moz-box-shadow: 0 0 0 8px #c1cacd;
     box-shadow: 0 0 0 8px #c1cacd;
   }
 
-  /* line 406, ../../scss/screen.scss */
+  /* line 431, ../../scss/screen.scss */
   100% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
@@ -660,21 +678,21 @@ html, body, #app {
 }
 
 @-o-keyframes glow {
-  /* line 400, ../../scss/screen.scss */
+  /* line 425, ../../scss/screen.scss */
   0% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
   }
 
-  /* line 403, ../../scss/screen.scss */
+  /* line 428, ../../scss/screen.scss */
   50% {
     -webkit-box-shadow: 0 0 0 8px #c1cacd;
     -moz-box-shadow: 0 0 0 8px #c1cacd;
     box-shadow: 0 0 0 8px #c1cacd;
   }
 
-  /* line 406, ../../scss/screen.scss */
+  /* line 431, ../../scss/screen.scss */
   100% {
     -webkit-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);
     -moz-box-shadow: 0 0 0 1px rgba(193, 202, 205, 0);

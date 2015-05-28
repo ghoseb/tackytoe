@@ -281,12 +281,38 @@ html, body, #app {
             @include transition(all 0.2s linear 0s);
         }
 
-        &.show {
+        &.show, &.showturn {
             &:after {
                 color: rgba($color-text, 0.5);
                 top: 0;
             }
         }
+
+        &.showover {
+            &:after {
+                content: "Game Over";
+                color: $color-red;
+                top: 0;
+            }
+        }
+
+        &.showloss {
+            &:after {
+                content: "You Loss";
+                color: $color-red;
+                top: 0;
+            }
+        }
+
+        &.showwin {
+            &:after {
+                content: "You Win";
+                color: $color-green;
+                top: 0;
+            }
+        }
+
+
     }
 
     > .game__home,
