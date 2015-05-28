@@ -1,6 +1,14 @@
 (ns tackytoe.app.game
-  (:require [tackytoe.engine.board :refer [make-board valid-move? place-on-board next-mark empty-squares winner game-over?]]
+  (:require [tackytoe.engine.board :refer [make-board
+                                           valid-move?
+                                           place-on-board
+                                           next-mark
+                                           empty-squares
+                                           winner
+                                           game-over?
+                                           winning-combo]]
             [tackytoe.engine.ai :refer [computer-mover]]))
+
 
 (defn get-player [{:keys [name]}]
   (case name
@@ -13,7 +21,7 @@
   [state move]
   (when-not (game-over? (:board @state))
     (let [new-board (place-on-board (:board @state) move (:mark @state))
-          maybe-win? (winner new-board)]
+          maybe-win? (winning-combo new-board)]
       (swap! state assoc
              :board new-board
              :mark (next-mark (:mark @state))
@@ -32,9 +40,8 @@
     (when (and (= :human (:turn @state))
                (valid-move? board idx))
       (play-move state idx)
-      (js/setTimeout
-       #(play-move state (ai (:board @state) (:mark @state)))
-       (rand-int 2000)))))
+      (js/setTimeout #(play-move state (ai (:board @state) (:mark @state)))
+                     (rand-int 2000)))))
 
 
 (defn turn?
@@ -46,15 +53,19 @@
 (defn game
   "Given app-state return the current game board."
   [state]
-  [:div.game
-   [:div.game__board (for [[idx cell] (map-indexed vector (:board @state))]
-                       ^{:key idx} [:div.game__cell {:data-marked cell
-                                                     :on-click #(move-when-valid state idx)}])]
-   [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn (turn? state :computer)}]
-   [:div.game__player {:data-player "user" :data-turn (turn? state :human)}]
-   (when (turn? state :human) [:div.game__turn.show])
-   [:button.game__home {:on-click #(set! js/window.location.hash "")}]
-   [:button.game__reset {:on-click #(swap! state assoc :board (make-board))}]])
+  (let [win? (into #{} (:winner @state))]
+    [:div.game
+     [:div.game__board (for [[idx cell] (map-indexed vector (:board @state))]
+                         ^{:key idx} [:div.game__cell {:data-marked cell
+                                                       :on-click #(move-when-valid state idx)
+                                                       :class (when (win? idx) "highlight")}])]
+     [:div.game__player {:data-player (get-in @state [:vs :name]) :data-turn (turn? state :computer)}]
+     [:div.game__player {:data-player "user" :data-turn (turn? state :human)}]
+     (cond
+       (turn? state :human) [:div.game__turn.show]
+       (game-over? (:board @state)) [:div.game__turn.showover])
+     [:button.game__home {:on-click #(set! js/window.location.hash "")}]
+     [:button.game__reset {:on-click #(swap! state assoc :board (make-board))}]]))
 
 
 

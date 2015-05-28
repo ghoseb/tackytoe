@@ -21,6 +21,11 @@
 (defn- index-filter [pred coll]
   (for [[spot i] (indexed coll) :when (pred spot)] i))
 
+(defn- win? [board spaces]
+  (let [xs (map board spaces)]
+    (and (apply = xs)
+         (not= " " (board (first spaces))))))
+
 ;;; public functions
 
 (defn make-board [] (vec (repeat 9 " ")))
@@ -41,6 +46,10 @@
 (defn valid-move? [board move]
   (try (= (board move) " ")
        (catch js/Error _ false)))
+
+
+(defn winning-combo [board]
+  (first (filter (partial win? board) win-sets)))
 
 
 (defn empty-squares [board]
