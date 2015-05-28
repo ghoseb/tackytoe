@@ -5,7 +5,8 @@
             [secretary.core :as secretary
              :refer-macros [defroute]]
             [tackytoe.app.home :as tah]
-            [tackytoe.app.game :as tag]))
+            [tackytoe.app.game :as tag]
+            [tackytoe.engine.board :refer [make-board]]))
 
 
 (def opponents [{:name "rajini" :url "#/vs/rajini"}
@@ -22,10 +23,19 @@
      (opponents 0))))
 
 
+(defn default-state
+  []
+  {:current-page #(tah/home opponents)
+   :board (make-board)
+   :vs (player)
+   :mark "x"
+   :over? false
+   :winner nil
+   :turn :human})
+
+
 (defonce ^{:doc "The global application state."}
-  app-state (atom {:current-page #(tah/home opponents)
-                   :board ["x" "o" "" "" "" "x" "" "" ""]
-                   :vs (player)}))
+  app-state (atom (default-state)))
 
 
 (defn ^:private put! [k v]
@@ -36,6 +46,7 @@
 (secretary/set-config! :prefix "#")
 
 (defroute "/" []
+  (reset! app-state (default-state))
   (put! :current-page #(tah/home opponents)))
 
 (defroute "/vs/:vs" [vs]
