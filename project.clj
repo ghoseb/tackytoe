@@ -8,7 +8,6 @@
                  [ring "1.4.0-RC1"]
                  [ring/ring-defaults "0.1.5"]
                  [compojure "1.3.4"]
-                 [enlive "1.1.5"]
                  [environ "1.0.0"]
                  [reagent "0.5.0" :exclusions [cljsjs/react]]
                  [cljsjs/react-with-addons "0.13.3-0"]

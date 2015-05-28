@@ -3,20 +3,15 @@
             [tackytoe.dev :refer [is-dev? inject-devmode-html browser-repl start-figwheel]]
             [compojure.core :refer [GET defroutes]]
             [compojure.route :refer [resources]]
-            [net.cgrand.enlive-html :refer [deftemplate]]
-            [net.cgrand.reload :refer [auto-reload]]
             [ring.middleware.reload :as reload]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [environ.core :refer [env]]
             [ring.adapter.jetty :refer [run-jetty]]))
 
-(deftemplate page (io/resource "index.html") []
-  [:body] (if is-dev? inject-devmode-html identity))
 
 (defroutes routes
   (resources "/")
-  (resources "/react" {:root "react"})
-  (GET "/*" req (page)))
+  (GET "/*" req (io/resource "index.html")))
 
 (def http-handler
   (if is-dev?
@@ -29,7 +24,6 @@
     (run-jetty http-handler {:port port :join? false})))
 
 (defn run-auto-reload [& [port]]
-  (auto-reload *ns*)
   (start-figwheel))
 
 (defn run [& [port]]
