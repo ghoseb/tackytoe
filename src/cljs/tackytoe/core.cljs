@@ -34,7 +34,7 @@
    :turn :human})
 
 
-(defonce ^{:doc "The global application state."}
+(def ^{:doc "The global application state."}
   app-state (atom (default-state)))
 
 

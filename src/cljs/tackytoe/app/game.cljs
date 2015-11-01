@@ -41,13 +41,17 @@
                (valid-move? board idx))
       (play-move state idx)
       (js/setTimeout #(play-move state (ai (:board @state) (:mark @state)))
-                     (rand-int 1500)))))
+                     (rand-int 1000)))))
 
 
 (defn turn?
   [state player]
   (and (not (:over? @state))
        (= (:turn @state) player)))
+
+
+(defn- reset-game [state]
+  (swap! state merge {:winner nil, :over? false, :board (make-board)}))
 
 
 (defn game
@@ -66,7 +70,7 @@
        (turn? state :human) [:div.game__turn.show]
        (game-over? (:board @state)) [:div.game__turn.showover])
      [:button.game__home {:on-click #(set! js/window.location.hash "")}]
-     [:button.game__reset {:on-click #(swap! state assoc :board (make-board))}]]))
+     [:button.game__reset {:on-click #(reset-game state)}]]))
 
 
 
