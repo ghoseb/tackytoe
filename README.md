@@ -81,11 +81,7 @@ Now your app is running at
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Baishampayan Ghose
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
-
-## Chestnut
-
-Created with [Chestnut](http://plexus.github.io/chestnut/) 0.7.0.
